@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport: necessária para o layout mobile-first (Aula 5) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Guiado - Jogo da Velha (Aula 11)</title>
+    <!-- CSS externo (Aula 3) -->
+    <link rel="stylesheet" href="jogo-da-velha.css">
+</head>
+<body>
+
+    <!-- Estrutura semântica (Aula 7) -->
+    <header>
+        <h1>Jogo da Velha</h1>
+        <p>Projeto guiado &mdash; Programação Orientada a Objetos com <code>class</code> em JavaScript (Aula 11)</p>
+    </header>
+
+    <main>
+
+        <!-- Área do jogo -->
+        <section class="painel-jogo">
+            <h2>Partida</h2>
+
+            <p id="status" class="status">Vez de Jogador 1 (X)</p>
+
+            <!-- Tabuleiro 3x3: cada célula é um botão; data-index = posição de 0 a 8 -->
+            <div class="tabuleiro" id="tabuleiro">
+                <button class="celula" data-index="0" aria-label="Posição 0"></button>
+                <button class="celula" data-index="1" aria-label="Posição 1"></button>
+                <button class="celula" data-index="2" aria-label="Posição 2"></button>
+                <button class="celula" data-index="3" aria-label="Posição 3"></button>
+                <button class="celula" data-index="4" aria-label="Posição 4"></button>
+                <button class="celula" data-index="5" aria-label="Posição 5"></button>
+                <button class="celula" data-index="6" aria-label="Posição 6"></button>
+                <button class="celula" data-index="7" aria-label="Posição 7"></button>
+                <button class="celula" data-index="8" aria-label="Posição 8"></button>
+            </div>
+
+            <p class="info">Casas livres: <strong id="casas-livres">9</strong></p>
+
+            <button id="btn-nova-rodada" class="botao">Nova rodada</button>
+        </section>
+
+        <!-- Conteúdo complementar: configuração, placar e conceitos -->
+        <aside>
+
+            <!-- Formulário (Aula 4) -->
+            <section>
+                <h2>Jogadores</h2>
+                <form id="form-jogadores">
+                    <fieldset>
+                        <legend>Configuração do jogo</legend>
+
+                        <label for="nome-x">Nome do jogador X</label>
+                        <input type="text" id="nome-x" name="nomeX" placeholder="Jogador 1" maxlength="20">
+
+                        <label for="nome-o">Nome do jogador O</label>
+                        <input type="text" id="nome-o" name="nomeO" placeholder="Jogador 2" maxlength="20">
+
+                        <label for="quem-comeca">Quem começa?</label>
+                        <select id="quem-comeca" name="quemComeca">
+                            <option value="0">Jogador X</option>
+                            <option value="1">Jogador O</option>
+                        </select>
+
+                        <small>Deixe um nome em branco para usar o valor <em>default</em> do construtor.</small>
+
+                        <input type="submit" value="Iniciar novo jogo" class="botao">
+                    </fieldset>
+                </form>
+            </section>
+
+            <!-- Placar em tabela (Aula 2) -->
+            <section>
+                <h2>Placar</h2>
+                <table class="placar">
+                    <tr>
+                        <th>Jogador</th>
+                        <th>Vitórias</th>
+                    </tr>
+                    <tr>
+                        <td id="placar-nome-x">Jogador 1 (X)</td>
+                        <td id="placar-x">0</td>
+                    </tr>
+                    <tr>
+                        <td id="placar-nome-o">Jogador 2 (O)</td>
+                        <td id="placar-o">0</td>
+                    </tr>
+                    <tr>
+                        <td>Empates</td>
+                        <td id="placar-empates">0</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Painel preenchido automaticamente por verificacao.js -->
+            <section>
+                <h2>Progresso: <span id="progresso-total">0 de 7</span></h2>
+                <ol id="progresso" class="progresso">
+                    <li class="pendente"><strong>Carregando verificação...</strong></li>
+                </ol>
+                <p class="info">Salve o arquivo e recarregue a página (F5) para atualizar. No console (F12), use <code>verificarExercicios()</code>.</p>
+            </section>
+
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>Desenvolvimento Web e Aplicativos &copy; 2026</p>
+    </footer>
+
+    <!-- Script no final do body: os elementos já existem quando o JS executa -->
+    <!-- jogo-da-velha.js: arquivo que VOCÊ completa -->
+    <script src="jogo-da-velha.js"></script>
+    <!-- verificacao.js: confere os exercícios (não altere) -->
+    <script src="verificacao.js"></script>
+</body>
+</html>
