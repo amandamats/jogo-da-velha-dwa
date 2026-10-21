@@ -236,12 +236,11 @@ class JogoDaVelha extends Jogo {
     #verificarVitoria() {
         const t = this.#tabuleiro;
 
-        // TODO 7.1: percorra COMBINACOES_VENCEDORAS com for...of,
-        //           desestruturando cada combinação: for (const [a, b, c] of ...)
-        // TODO 7.2: se t[a] não for "" e t[a] === t[b] e t[a] === t[c],
-        //           retorne [a, b, c].
-        // TODO 7.3: depois do laço, retorne null (ninguém venceu).
-        //           SUBSTITUA a linha abaixo pelo seu código.
+        for (const [a, b, c] of COMBINACOES_VENCEDORAS) {
+            if (t[a] && t[a] === t[b] && t[a] === t[c]) {
+                return [a, b, c];
+            }
+        }
 
         return null;
     }
